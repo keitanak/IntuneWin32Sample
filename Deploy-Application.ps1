@@ -204,11 +204,12 @@ Try {
                 $defaultMspFiles | ForEach-Object { Execute-MSI -Action 'Patch' -Path $_ }
             }
         }
-        $sid=(Get-Process -Name explorer).SessionId
-        Execute-Process -Path "$dirFiles\PsExec.exe" -Parameters "-i $sid /accepteula $dirFiles\7z1900-x64.exe" -WindowStyle 'Normal'
+
 
         ## <Perform Installation tasks here>
-
+        
+        $sid=(Get-Process -Name explorer).SessionId
+        Execute-Process -Path "$dirFiles\PsExec.exe" -Parameters "-i $sid /accepteula $dirFiles\7z1900-x64.exe" -WindowStyle 'Normal'
 
         ##*===============================================
         ##* POST-INSTALLATION
